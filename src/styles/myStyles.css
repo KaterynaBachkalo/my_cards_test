@@ -2,6 +2,12 @@
 	overflow: hidden;
 }
 
+/**
+  |============================
+  | Modal
+  |============================
+*/
+
 .modal-backdrop {
 	position: fixed;
 	top: 0;
@@ -24,7 +30,8 @@
 	max-width: 280px;
 
 	@media only screen and (min-width: 375px) {
-		width: 335px;
+		max-width: calc(100% - 40px);
+		/* width: 335px; */
 	}
 
 	@media only screen and (min-width: 768px) {
@@ -41,19 +48,21 @@
 	z-index: 300;
 	width: calc(320px - 40px);
 
-	/* &.dark {
-		background-color: fn.get-color("light-dark");
-	} */
-
 	@media only screen and (min-width: 375px) {
-		width: 335px;
+		width: calc(375px - 40px);
 	}
 
 	@media only screen and (min-width: 768px) {
-		padding: 40px 72px;
-		width: 473px;
+		padding: 40px;
+		width: 500px;
 	}
 }
+
+/**
+  |============================
+  | Form
+  |============================
+*/
 
 .button-wrap {
 	display: flex;
@@ -62,6 +71,90 @@
 	gap: 16px;
 }
 
+.form-wrap {
+	position: relative;
+}
+
+.form-wrap-date-cvc {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 16px;
+}
+
+/**
+  |============================
+  | Input
+  |============================
+*/
+
 .wrap-input {
 	margin-bottom: 40px;
+}
+
+.input-date {
+	@media only screen and (min-width: 768px) {
+		width: calc(420px - 16px - 80px);
+	}
+}
+
+.input-date::placeholder {
+	font-family: "Arial Narrow", Arial, sans-serif, Helvetica, sans-serif;
+	font-size: 14px;
+}
+
+.brand-position {
+	position: absolute;
+	top: 25px;
+	right: 3px;
+
+	@media only screen and (min-width: 768px) {
+		top: 31px;
+		right: 15px;
+	}
+}
+
+.slash {
+	position: absolute;
+	top: 5px;
+	left: 32px;
+
+	@media only screen and (min-width: 768px) {
+		left: 30px;
+	}
+}
+
+/**
+  |============================
+  | Table
+  |============================
+*/
+
+label,
+.button-delete,
+td:not(:first-child) {
+	padding-left: 0;
+	padding-right: 0;
+
+	font-size: 12px;
+
+	@media only screen and (min-width: 768px) {
+		font-size: 18px;
+	}
+}
+
+th {
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+@media only screen and (min-width: 768px) {
+	.button-brand-last,
+	.header-title {
+		font-size: 22px;
+	}
+
+	.create-button {
+		font-size: 20px;
+	}
 }
