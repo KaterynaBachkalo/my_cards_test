@@ -1,0 +1,35 @@
+import type { JSX } from "react";
+import { flexRender, type Table } from "@tanstack/react-table";
+import { TableBody, TableCell, TableRow } from "../../../@/components/ui/table";
+import type { Payment } from "@/types/type";
+import CardColumn from "./CardColumn";
+
+const TableBodyComponent = ({
+	table,
+}: {
+	table: Table<Payment>;
+}): JSX.Element => {
+	return (
+		<TableBody>
+			{table.getRowModel().rows?.length ? (
+				table.getRowModel().rows.map((row) => (
+					<TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
+						{row.getVisibleCells().map((cell) => (
+							<TableCell key={cell.id}>
+								{flexRender(cell.column.columnDef.cell, cell.getContext())}
+							</TableCell>
+						))}
+					</TableRow>
+				))
+			) : (
+				<TableRow>
+					<TableCell className="h-24 text-center" colSpan={CardColumn.length}>
+						No cards found
+					</TableCell>
+				</TableRow>
+			)}
+		</TableBody>
+	);
+};
+
+export default TableBodyComponent;
