@@ -1,5 +1,4 @@
 import type { Dispatch, JSX, SetStateAction } from "react";
-
 import type {
 	CellContext,
 	ColumnDef,
@@ -7,14 +6,14 @@ import type {
 } from "@tanstack/react-table";
 
 import { Trash2 } from "lucide-react";
-
 import { Button } from "../../../@/components/ui/button";
-import {
-	RadioGroup,
-	RadioGroupItem,
-} from "../../../@/components/ui/radio-group";
 import type { Payment } from "@/types/type";
 import HeaderButton from "../ui/HeaderButton";
+import DefaultRow from "./DefaultRow";
+
+import visaImg from "../../img/visa.png";
+import mastercardImg from "../../img/mastercard.png";
+import amexImg from "../../img/amex.png";
 
 const CardColumn = (
 	setTableData: Dispatch<SetStateAction<Array<Payment>>>
@@ -25,7 +24,15 @@ const CardColumn = (
 			return <HeaderButton column={column} text="Brand" />;
 		},
 		cell: ({ row }) => (
-			<div className="capitalize">{row.getValue("brand")}</div>
+			<div>
+				{row.getValue("brand") === "visa" ? (
+					<img alt="visa" src={visaImg} width={50} />
+				) : row.getValue("brand") === "mastercard" ? (
+					<img alt="mastercard" src={mastercardImg} width={50} />
+				) : (
+					<img alt="amex" src={amexImg} width={50} />
+				)}
+			</div>
 		),
 	},
 	{
@@ -37,7 +44,7 @@ const CardColumn = (
 	},
 	{
 		accessorKey: "default",
-		header: () => <div>Default</div>,
+		header: () => <h2 className="header-title">Default</h2>,
 		cell: ({ row }: CellContext<Payment, unknown>): JSX.Element => {
 			const rowId = row.original.id;
 			const isDefault = row.getValue<boolean>("default");
@@ -52,28 +59,17 @@ const CardColumn = (
 			};
 
 			return (
-				<RadioGroup
-					value={isDefault ? rowId : ""}
-					onValueChange={() => {
-						handleSelectDefault(rowId);
-					}}
-				>
-					<div className="flex items-center gap-2">
-						<RadioGroupItem id={`radio-${rowId}`} value={rowId} />
-						<label
-							className="text-sm text-muted-foreground"
-							htmlFor={`radio-${rowId}`}
-						>
-							{isDefault ? "Default" : ""}
-						</label>
-					</div>
-				</RadioGroup>
+				<DefaultRow
+					handleSelectDefault={handleSelectDefault}
+					isDefault={isDefault}
+					rowId={rowId}
+				/>
 			);
 		},
 	},
 	{
 		id: "actions",
-		header: () => <div>Action</div>,
+		header: () => <h2 className="header-title">Action</h2>,
 		enableHiding: false,
 		cell: ({ row }: CellContext<Payment, unknown>): JSX.Element => {
 			const rowId = row.original.id;
@@ -82,7 +78,7 @@ const CardColumn = (
 			};
 			return (
 				<Button
-					className="cursor-pointer"
+					className="cursor-pointer button-delete"
 					size="sm"
 					variant="destructive"
 					onClick={() => {
