@@ -1,7 +1,8 @@
 import { useTranslation } from "react-i18next";
 import type { FunctionComponent } from "../common/types";
+import { Link } from "react-router-dom";
 
-export const Home = (): FunctionComponent => {
+const Home = (): FunctionComponent => {
 	const { t, i18n } = useTranslation();
 
 	const onTranslateButtonClick = async (): Promise<void> => {
@@ -22,6 +23,11 @@ export const Home = (): FunctionComponent => {
 			>
 				translate
 			</button>
+			<Link className="text-orange-400 text-4xl" to="/my-cards">
+				Go to cards
+			</Link>
 		</div>
 	);
 };
+
+export default Home;
