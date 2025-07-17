@@ -12,7 +12,7 @@ interface IProps {
 const HeaderButton = ({ column, text }: IProps): JSX.Element => {
 	return (
 		<Button
-			className="!pl-0"
+			className="!p-0 button-brand-last"
 			variant="ghost"
 			onClick={() => {
 				column.toggleSorting(column.getIsSorted() === "asc");
