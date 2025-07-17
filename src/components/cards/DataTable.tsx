@@ -13,12 +13,11 @@ import {
 	type VisibilityState,
 } from "@tanstack/react-table";
 
+import type { Payment } from "@/types/type";
 import { Table } from "../../../@/components/ui/table";
 import { Button } from "../../../@/components/ui/button";
 import initialData from "../../mockApi/mockData";
 import Modal from "../../components/layout/Modal";
-import type { Payment } from "@/types/type";
-
 import CardColumn from "./CardColumn";
 import FindForm from "../forms/FindForm";
 import TableHeaderComponent from "./TableHeader";
@@ -78,7 +77,7 @@ function DataTable(): JSX.Element {
 				</div>
 			</div>
 			<Button
-				className="cursor-pointer text-blue-400"
+				className="text-blue-400 create-button"
 				variant="ghost"
 				onClick={openCreateCardModal}
 			>
