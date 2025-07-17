@@ -1,30 +1,21 @@
-import { createRouter } from "@tanstack/react-router";
-import React from "react";
-import ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
-import { routeTree } from "./routeTree.gen.ts";
+import { BrowserRouter } from "react-router-dom";
 import "./styles/tailwind.css";
+import "./styles/myStyles.css";
 import "./common/i18n";
+// import MyThemeProvider from "./contexts/ThemeProvider.tsx";
 
-const router = createRouter({ routeTree });
+const rootElement = document.getElementById("root");
 
-export type TanstackRouter = typeof router;
+const root = createRoot(rootElement!);
 
-declare module "@tanstack/react-router" {
-	interface Register {
-		// This infers the type of our router and registers it across your entire project
-		router: TanstackRouter;
-	}
-}
-
-const rootElement = document.querySelector("#root") as Element;
-if (!rootElement.innerHTML) {
-	const root = ReactDOM.createRoot(rootElement);
-	root.render(
-		<React.StrictMode>
-			<React.Suspense fallback="loading">
-				<App router={router} />
-			</React.Suspense>
-		</React.StrictMode>
-	);
-}
+root.render(
+	<>
+		<BrowserRouter basename="/">
+			{/* <MyThemeProvider> */}
+			<App />
+			{/* </MyThemeProvider> */}
+		</BrowserRouter>
+	</>
+);
