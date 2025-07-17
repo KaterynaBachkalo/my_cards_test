@@ -2,7 +2,6 @@ import type { JSX } from "react";
 import { flexRender, type Table } from "@tanstack/react-table";
 import { TableBody, TableCell, TableRow } from "../../../@/components/ui/table";
 import type { Payment } from "@/types/type";
-import CardColumn from "./CardColumn";
 
 const TableBodyComponent = ({
 	table,
@@ -23,7 +22,10 @@ const TableBodyComponent = ({
 				))
 			) : (
 				<TableRow>
-					<TableCell className="h-24 text-center" colSpan={CardColumn.length}>
+					<TableCell
+						className="h-24 text-center"
+						colSpan={table.getAllColumns().length}
+					>
 						No cards found
 					</TableCell>
 				</TableRow>
