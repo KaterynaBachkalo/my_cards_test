@@ -17,8 +17,11 @@ import type { FormProps } from "../../types/type";
 import visaImg from "../../img/visa.png";
 import mastercardImg from "../../img/mastercard.png";
 import amexImg from "../../img/amex.png";
+import { useTheme } from "../../hooks/useTheme";
 
 const FormBrand = ({ form }: FormProps): JSX.Element => {
+	const { theme } = useTheme();
+
 	return (
 		<FormField
 			control={form.control}
@@ -27,7 +30,9 @@ const FormBrand = ({ form }: FormProps): JSX.Element => {
 				<FormItem>
 					<Select value={field.value} onValueChange={field.onChange}>
 						<FormControl>
-							<SelectTrigger className="!h-[25px] !p-0 border-none shadow-none shadow-transparent brand-position">
+							<SelectTrigger
+								className={`!h-[25px] !p-0 border-none shadow-none shadow-transparent brand-position ${theme === "dark" ? "dark" : ""}`}
+							>
 								<SelectValue placeholder="Select brand">
 									{field.value && (
 										<img
