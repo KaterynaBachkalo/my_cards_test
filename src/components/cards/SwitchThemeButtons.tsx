@@ -1,8 +1,8 @@
-import type { JSX } from "react";
 import { useTheme } from "../../hooks/useTheme";
 import { Moon, Sun } from "lucide-react";
+import type { FunctionComponent } from "../../common/types";
 
-const SwitchThemeButtons = (): JSX.Element => {
+const SwitchThemeButtons = (): FunctionComponent => {
 	const { theme, toggleTheme } = useTheme();
 
 	const myToggleThemeLight = (): void => {

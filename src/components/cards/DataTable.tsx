@@ -1,7 +1,6 @@
 "use client";
 
-import { type JSX, useState } from "react";
-
+import { useState } from "react";
 import {
 	getCoreRowModel,
 	getFilteredRowModel,
@@ -13,7 +12,6 @@ import {
 	type VisibilityState,
 } from "@tanstack/react-table";
 
-import type { Payment } from "../../types/type";
 import { Table } from "../../../@/components/ui/table";
 import { Button } from "../../../@/components/ui/button";
 import initialData from "../../mockApi/mockData";
@@ -23,8 +21,9 @@ import FindForm from "../forms/FindForm";
 import TableHeaderComponent from "./TableHeader";
 import TableBodyComponent from "./TableBody";
 import CreateCardModal from "./CreateCardModal";
+import type { FunctionComponent, Payment } from "../../common/types";
 
-function DataTable(): JSX.Element {
+function DataTable(): FunctionComponent {
 	const [tableData, setTableData] = useState<Array<Payment>>(initialData);
 	const [openModal, setOpenModal] = useState(false);
 

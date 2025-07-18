@@ -1,5 +1,3 @@
-import type { JSX } from "react";
-
 import {
 	FormControl,
 	FormField,
@@ -7,11 +5,10 @@ import {
 	FormLabel,
 	FormMessage,
 } from "../../../@/components/ui/form";
-
 import { Input } from "../../../@/components/ui/input";
-import type { FormProps } from "../../types/type";
+import type { FormProps, FunctionComponent } from "../../common/types";
 
-const FormCardNumber = ({ form }: FormProps): JSX.Element => {
+const FormCardNumber = ({ form }: FormProps): FunctionComponent => {
 	return (
 		<FormField
 			control={form.control}

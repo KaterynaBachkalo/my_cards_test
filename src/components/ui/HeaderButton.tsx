@@ -1,15 +1,14 @@
 import { ArrowUpDown } from "lucide-react";
 import { Button } from "../../../@/components/ui/button";
-import type { JSX } from "react";
 import type { HeaderContext } from "@tanstack/react-table";
-import type { Payment } from "@/types/type";
+import type { FunctionComponent, Payment } from "../../common/types";
 
 interface IProps {
 	column: HeaderContext<Payment, unknown>["column"];
 	text: string;
 }
 
-const HeaderButton = ({ column, text }: IProps): JSX.Element => {
+const HeaderButton = ({ column, text }: IProps): FunctionComponent => {
 	return (
 		<Button
 			className="!p-0 button-brand-last"

@@ -1,8 +1,13 @@
-import { type JSX, type ReactNode, useState } from "react";
+import { type ReactNode, useState } from "react";
 
 import { ThemeContext } from "./ThemeContext";
+import type { FunctionComponent } from "../common/types";
 
-const ThemeProvider = ({ children }: { children: ReactNode }): JSX.Element => {
+const ThemeProvider = ({
+	children,
+}: {
+	children: ReactNode;
+}): FunctionComponent => {
 	const [theme, setTheme] = useState<"light" | "dark">(
 		(localStorage.getItem("app-theme") as "light" | "dark") || "light"
 	);

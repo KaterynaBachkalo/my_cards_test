@@ -1,4 +1,3 @@
-import type { JSX } from "react";
 import {
 	FormControl,
 	FormField,
@@ -6,10 +5,10 @@ import {
 	FormMessage,
 	FormLabel,
 } from "../../../@/components/ui/form";
-import type { FormProps } from "../../types/type";
 import { Input } from "../../../@/components/ui/input";
+import type { FormProps, FunctionComponent } from "../../common/types";
 
-const FormExpDate = ({ form }: FormProps): JSX.Element => {
+const FormExpDate = ({ form }: FormProps): FunctionComponent => {
 	return (
 		<FormField
 			control={form.control}

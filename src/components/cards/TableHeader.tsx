@@ -1,18 +1,16 @@
-import type { JSX } from "react";
 import { flexRender, type Table } from "@tanstack/react-table";
-
+import type { FunctionComponent, Payment } from "../../common/types";
 import {
 	TableHead,
 	TableHeader,
 	TableRow,
 } from "../../../@/components/ui/table";
-import type { Payment } from "@/types/type";
 
 const TableHeaderComponent = ({
 	table,
 }: {
 	table: Table<Payment>;
-}): JSX.Element => {
+}): FunctionComponent => {
 	return (
 		<TableHeader>
 			{table.getHeaderGroups().map((headerGroup) => (

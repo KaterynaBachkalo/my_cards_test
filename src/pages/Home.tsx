@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
-import type { FunctionComponent } from "../common/types";
 import { Link } from "react-router-dom";
+
+import type { FunctionComponent } from "../common/types";
 
 const Home = (): FunctionComponent => {
 	const { t, i18n } = useTranslation();

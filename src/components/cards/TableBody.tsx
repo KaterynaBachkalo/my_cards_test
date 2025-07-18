@@ -1,13 +1,12 @@
-import type { JSX } from "react";
 import { flexRender, type Table } from "@tanstack/react-table";
 import { TableBody, TableCell, TableRow } from "../../../@/components/ui/table";
-import type { Payment } from "@/types/type";
+import type { FunctionComponent, Payment } from "../../common/types";
 
 const TableBodyComponent = ({
 	table,
 }: {
 	table: Table<Payment>;
-}): JSX.Element => {
+}): FunctionComponent => {
 	return (
 		<TableBody>
 			{table.getRowModel().rows?.length ? (

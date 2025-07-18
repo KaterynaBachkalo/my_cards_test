@@ -1,4 +1,3 @@
-import type { JSX } from "react";
 import {
 	FormControl,
 	FormField,
@@ -12,14 +11,14 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "../../../@/components/ui/select";
-import type { FormProps } from "../../types/type";
+import { useTheme } from "../../hooks/useTheme";
+import type { FormProps, FunctionComponent } from "../../common/types";
 
 import visaImg from "../../img/visa.png";
 import mastercardImg from "../../img/mastercard.png";
 import amexImg from "../../img/amex.png";
-import { useTheme } from "../../hooks/useTheme";
 
-const FormBrand = ({ form }: FormProps): JSX.Element => {
+const FormBrand = ({ form }: FormProps): FunctionComponent => {
 	const { theme } = useTheme();
 
 	return (

@@ -1,8 +1,8 @@
-import type { JSX } from "react";
 import {
 	RadioGroup,
 	RadioGroupItem,
 } from "../../../@/components/ui/radio-group";
+import type { FunctionComponent } from "../../common/types";
 
 interface DefaultCardRadioProps {
 	rowId: string;
@@ -14,7 +14,7 @@ const DefaultRow = ({
 	rowId,
 	isDefault,
 	handleSelectDefault,
-}: DefaultCardRadioProps): JSX.Element => {
+}: DefaultCardRadioProps): FunctionComponent => {
 	return (
 		<RadioGroup
 			value={isDefault ? rowId : ""}

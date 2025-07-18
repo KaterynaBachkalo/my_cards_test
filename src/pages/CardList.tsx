@@ -1,10 +1,12 @@
-import { type JSX, Suspense, lazy } from "react";
+import { Suspense, lazy } from "react";
+
 import SwitchThemeButtons from "../components/cards/SwitchThemeButtons";
 import { useTheme } from "../hooks/useTheme";
+import type { FunctionComponent } from "../common/types";
 
 const DataTable = lazy(() => import("../components/cards/DataTable"));
 
-const CardList = (): JSX.Element => {
+const CardList = (): FunctionComponent => {
 	const { theme } = useTheme();
 
 	if (theme === "dark") {

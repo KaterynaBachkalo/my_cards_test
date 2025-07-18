@@ -1,7 +1,8 @@
-import type { JSX } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+
+import type { FunctionComponent, Payment } from "../../common/types";
 import { Button } from "../../../@/components/ui/button";
 import { Form } from "../../../@/components/ui/form";
 
@@ -9,7 +10,6 @@ import FormCardNumber from "./FormCardNumber";
 import FormBrand from "./FormBrand";
 import FormExpDate from "./FormExpDate";
 import FormCVC from "./FormCVC";
-import type { Payment } from "../../types/type";
 import { useTheme } from "../../hooks/useTheme";
 
 interface IProps {
@@ -35,7 +35,10 @@ const FormSchema = z.object({
 
 export type FormSchemaType = z.infer<typeof FormSchema>;
 
-const CreateCardModal = ({ onClose, setTableData }: IProps): JSX.Element => {
+const CreateCardModal = ({
+	onClose,
+	setTableData,
+}: IProps): FunctionComponent => {
 	const { theme } = useTheme();
 
 	const form = useForm<FormSchemaType>({
