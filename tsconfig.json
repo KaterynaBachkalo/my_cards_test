@@ -23,11 +23,7 @@
 		"noImplicitOverride": true,
 		"noImplicitReturns": true,
 		"noPropertyAccessFromIndexSignature": true,
-		"noUncheckedIndexedAccess": true,
-		"baseUrl": ".",
-		"paths": {
-			"@/*": ["src/*"]
-		}
+		"noUncheckedIndexedAccess": true
 	},
 	"include": ["src", "e2e", "@/lib/utilites.ts"],
 	"references": [{ "path": "./tsconfig.node.json" }]
