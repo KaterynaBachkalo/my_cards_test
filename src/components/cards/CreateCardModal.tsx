@@ -5,11 +5,12 @@ import { z } from "zod";
 import { Button } from "../../../@/components/ui/button";
 import { Form } from "../../../@/components/ui/form";
 
-import type { Payment } from "@/types/type";
 import FormCardNumber from "./FormCardNumber";
 import FormBrand from "./FormBrand";
 import FormExpDate from "./FormExpDate";
 import FormCVC from "./FormCVC";
+import type { Payment } from "../../types/type";
+import { useTheme } from "../../hooks/useTheme";
 
 interface IProps {
 	onClose: () => void;
@@ -35,6 +36,8 @@ const FormSchema = z.object({
 export type FormSchemaType = z.infer<typeof FormSchema>;
 
 const CreateCardModal = ({ onClose, setTableData }: IProps): JSX.Element => {
+	const { theme } = useTheme();
+
 	const form = useForm<FormSchemaType>({
 		resolver: zodResolver(FormSchema),
 	});
@@ -71,13 +74,21 @@ const CreateCardModal = ({ onClose, setTableData }: IProps): JSX.Element => {
 
 					<ul className="button-wrap">
 						<li>
-							<Button variant="outline" onClick={onClose}>
+							<Button
+								className={`cancel-btn ${theme === "dark" ? "dark" : ""}`}
+								variant="outline"
+								onClick={onClose}
+							>
 								Cancel
 							</Button>
 						</li>
 
 						<li>
-							<Button type="submit" variant="secondary">
+							<Button
+								className={`add-btn ${theme === "dark" ? "dark" : ""}`}
+								type="submit"
+								variant="secondary"
+							>
 								Add Card
 							</Button>
 						</li>
