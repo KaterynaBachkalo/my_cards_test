@@ -2,6 +2,13 @@
 	overflow: hidden;
 }
 
+.back {
+	background-color: #fff;
+}
+
+.back.dark {
+	background-color: rgba(38, 38, 38, 0.3);
+}
 /**
   |============================
   | Modal
@@ -58,6 +65,10 @@
 	}
 }
 
+.modal.dark {
+	background: #646363;
+}
+
 /**
   |============================
   | Form
@@ -80,6 +91,27 @@
 	justify-content: space-between;
 	align-items: center;
 	gap: 16px;
+}
+
+.add-btn.dark {
+	background-color: #1c193f;
+	color: #918f8f;
+}
+
+.add-btn.dark:hover,
+.add-btn.dark:focus {
+	background-color: #2b2757;
+}
+
+.cancel-btn.dark {
+	background-color: #2e2e30;
+	border: none;
+	color: #918f8f;
+}
+
+.cancel-btn.dark:hover,
+.cancel-btn.dark:focus {
+	background-color: #404041;
 }
 
 /**
@@ -112,6 +144,10 @@
 		top: 31px;
 		right: 15px;
 	}
+}
+
+.brand-position.dark {
+	background: #646363;
 }
 
 .slash {
@@ -157,4 +193,62 @@ th {
 	.create-button {
 		font-size: 20px;
 	}
+}
+
+/**
+  |============================
+  | Switch buttons
+  |============================
+*/
+
+.switch-buttons {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	justify-content: flex-end;
+}
+.switch-button {
+	border: none;
+	border-radius: 50%;
+	padding: 0;
+}
+
+.switch-button:hover,
+.switch-button:focus {
+	background-color: rgb(245, 245, 138);
+}
+
+.switch-icon {
+	padding: 10px;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	cursor: pointer;
+
+	@media only screen and (min-width: 768px) {
+		width: 45px;
+		height: 45px;
+	}
+}
+
+.switch-icon.white {
+	color: orange;
+	background-color: rgb(255, 255, 192);
+	transition: all 0.5s ease-in;
+}
+
+.switch-icon.white:hover,
+.switch-icon.white:focus {
+	background-color: rgb(245, 245, 138);
+}
+
+.switch-icon.light {
+	color: rgb(34, 19, 19);
+	background-color: #5e5858;
+	transition: all 0.5s ease-in;
+}
+
+.switch-icon.light:hover,
+.switch-icon.light:focus {
+	background-color: #918f8f;
 }
