@@ -52,7 +52,3 @@ ESLint
 Prettier
 
 React Router
-
-```
-
-```
