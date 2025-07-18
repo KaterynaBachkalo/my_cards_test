@@ -12,3 +12,8 @@ export type Payment = {
 export type FormProps = {
 	form: UseFormReturn<FormSchemaType>;
 };
+
+export interface IContextTheme {
+	theme: "light" | "dark";
+	toggleTheme: () => void;
+}
