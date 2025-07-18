@@ -1,6 +1,7 @@
 import { type FC, type ReactNode, useRef } from "react";
 import { createPortal } from "react-dom";
 import useCloseModals from "../../hooks/useCloseModals";
+import { useTheme } from "../../hooks/useTheme";
 
 const modalRoot: Element | null = document.querySelector("#root-modal");
 
@@ -14,6 +15,8 @@ const Modal: FC<IProps> = ({ onClose, children }) => {
 	const backdropRef = useRef<HTMLDivElement | null>(null);
 	useCloseModals(onClose, modalRef, backdropRef);
 
+	const { theme } = useTheme();
+
 	return (
 		modalRoot &&
 		createPortal(
@@ -21,7 +24,7 @@ const Modal: FC<IProps> = ({ onClose, children }) => {
 				<div className="modal-container">
 					<div
 						ref={modalRef}
-						className="modal"
+						className={`modal ${theme === "dark" ? "dark" : ""}`}
 						onClick={(event) => {
 							event.stopPropagation();
 						}}
