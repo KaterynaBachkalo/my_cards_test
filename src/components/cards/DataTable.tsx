@@ -13,7 +13,7 @@ import {
 	type VisibilityState,
 } from "@tanstack/react-table";
 
-import type { Payment } from "@/types/type";
+import type { Payment } from "../../types/type";
 import { Table } from "../../../@/components/ui/table";
 import { Button } from "../../../@/components/ui/button";
 import initialData from "../../mockApi/mockData";
