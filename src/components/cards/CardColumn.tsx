@@ -7,7 +7,7 @@ import type {
 
 import { Trash2 } from "lucide-react";
 import { Button } from "../../../@/components/ui/button";
-import type { Payment } from "@/types/type";
+import type { Payment } from "../../types/type";
 import HeaderButton from "../ui/HeaderButton";
 import DefaultRow from "./DefaultRow";
 
