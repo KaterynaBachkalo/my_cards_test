@@ -1,4 +1,4 @@
-import type { Payment } from "@/types/type";
+import type { Payment } from "../common/types";
 
 const initialData: Array<Payment> = [
 	{
